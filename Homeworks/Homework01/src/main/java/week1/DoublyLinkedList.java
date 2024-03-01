@@ -7,10 +7,25 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
     private DoubleNode<Data> tail;
     private int size = 0;
 
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
     /* Add a new node to the front of the doubly linked list */
     public void addToFront(Data data) {
-        // your code
-        // testing if connection works
+        
+        DoubleNode<Data> newNode = new DoubleNode<>();
+        newNode.data = data;
+
+        if (isEmpty()) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+        size++;
     }
 
     /* Remove a node from the front of the doubly linked list */
