@@ -163,7 +163,7 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
         @Override
         public Data next() {
-            
+
             if (!hasNext()) {
                 throw new NoSuchElementException("No next element.");
             }
