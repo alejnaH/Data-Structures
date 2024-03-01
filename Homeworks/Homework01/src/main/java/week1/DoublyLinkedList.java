@@ -13,7 +13,7 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Add a new node to the front of the doubly linked list */
     public void addToFront(Data data) {
-        
+
         DoubleNode<Data> newNode = new DoubleNode<>();
         newNode.data = data;
 
@@ -30,7 +30,17 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Remove a node from the front of the doubly linked list */
     public void removeFromFront() {
-        // your code
+
+        if (!isEmpty()) {
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                head.next.prev = null;
+                head = head.next;
+            }
+            size--;
+        }
     }
 
     /* Add a new node to the end of the doubly linked list */
