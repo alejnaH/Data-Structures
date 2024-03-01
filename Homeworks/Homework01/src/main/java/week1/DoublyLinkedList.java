@@ -21,7 +21,8 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
         if (isEmpty()) {
             head = newNode;
             tail = newNode;
-        } else {
+        }
+        else {
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
@@ -36,7 +37,8 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
             if (head == tail) {
                 head = null;
                 tail = null;
-            } else {
+            }
+            else {
                 head.next.prev = null;
                 head = head.next;
             }
@@ -52,7 +54,8 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
         if (isEmpty()) {
             head = newNode;
             tail = newNode;
-        } else {
+        }
+        else {
             newNode.prev = tail;
             tail.next = newNode;
             tail = newNode;
@@ -68,7 +71,8 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
             if (head == tail) {
                 head = null;
                 tail = null;
-            } else {
+            }
+            else {
                 tail.prev.next = null;
                 tail = tail.prev;
             }
@@ -98,9 +102,11 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
         }
         if (index == 0) {
             addToFront(data);
-        } else if (index == size) {
+        }
+        else if (index == size) {
             addToRear(data);
-        } else {
+        }
+        else {
             DoubleNode<Data> newNode = new DoubleNode<>();
             newNode.data = data;
 
@@ -125,9 +131,11 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
         }
         if (index == 0) {
             removeFromFront();
-        } else if (index == size - 1) {
+        }
+        else if (index == size - 1) {
             removeFromRear();
-        } else {
+        }
+        else {
             DoubleNode<Data> current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
