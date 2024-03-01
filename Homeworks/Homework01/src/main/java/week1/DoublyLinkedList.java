@@ -45,8 +45,20 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Add a new node to the end of the doubly linked list */
     public void addToRear(Data data) {
-        // your code
+
+        DoubleNode<Data> newNode = new DoubleNode<>();
+
+        if (isEmpty()) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
     }
+
 
     /* Remove a node at the end of the doubly linked list */
     public void removeFromRear() {
