@@ -10,6 +10,7 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
     /* Add a new node to the front of the doubly linked list */
     public void addToFront(Data data) {
         // your code
+        // testing if connection works
     }
 
     /* Remove a node from the front of the doubly linked list */
