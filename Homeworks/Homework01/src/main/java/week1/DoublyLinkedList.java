@@ -1,6 +1,7 @@
 package week1;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class DoublyLinkedList<Data> implements Iterable<Data> {
     private DoubleNode<Data> head;
@@ -152,18 +153,24 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Define the Iterator class, and hasNext() and next() methods */
     private class DoublyLinkedListIterator implements Iterator<Data> {
-        //your code
+
+        private DoubleNode<Data> current = head;
 
         @Override
         public boolean hasNext() {
-            //your code
-            return false;
+            return current != null;
         }
 
         @Override
         public Data next() {
-            //your code
-            return null;
+            
+            if (!hasNext()) {
+                throw new NoSuchElementException("No next element.");
+            }
+
+            Data data = current.data;
+            current = current.next;
+            return data;
         }
     }
 
