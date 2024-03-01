@@ -62,7 +62,7 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Remove a node at the end of the doubly linked list */
     public void removeFromRear() {
-        
+
         if (!isEmpty()) {
             if (head == tail) {
                 head = null;
@@ -77,13 +77,44 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Get a linked list node by index (0-indexed) */
     public Data get(int index) {
-        // your code
-        return null;
+        
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+
+        DoubleNode<Data> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
     }
 
     /* Add an element to a doubly linked list by index (0-index) */
     public void add(int index, Data data) {
-        // your code
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+
+        if (index == 0) {
+            addToFront(data);
+        } else if (index == size) {
+            addToRear(data);
+        } else {
+            DoubleNode<Data> newNode = new DoubleNode<>();
+            newNode.data = data;
+
+            DoubleNode<Data> current = head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current.next;
+            }
+
+            newNode.prev = current;
+            newNode.next = current.next;
+            current.next.prev = newNode;
+            current.next = newNode;
+            size++;
+        }
     }
 
     /* Delete an element from a doubly linked list by index (0-index) */
