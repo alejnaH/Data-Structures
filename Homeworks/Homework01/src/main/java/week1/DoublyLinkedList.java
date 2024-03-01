@@ -141,15 +141,13 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Return the current size of the doubly linked list */
     public int count() {
-        //your code
-        return 0;
+            return size;
     }
 
     /* Return an Iterator Object */
     @Override
     public Iterator<Data> iterator() {
-        //your code
-        return null;
+        return new DoublyLinkedListIterator();
     }
 
     /* Define the Iterator class, and hasNext() and next() methods */
