@@ -62,7 +62,17 @@ public class DoublyLinkedList<Data> implements Iterable<Data> {
 
     /* Remove a node at the end of the doubly linked list */
     public void removeFromRear() {
-        // your code
+        
+        if (!isEmpty()) {
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                tail.prev.next = null;
+                tail = tail.prev;
+            }
+            size--;
+        }
     }
 
     /* Get a linked list node by index (0-indexed) */
